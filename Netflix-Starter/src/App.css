@@ -1,42 +1,142 @@
-.appDiv{
-    background-color: #161616;
-}
-
-.sc-dkQkyq{
+* {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+    background: #181922;
+  }
+  body {
+    margin: 0;
+    font-family: Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+      'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     color: white;
-    font-weight: bold;
-}
-.cqVapy{
-    border-bottom: 2px solid #E50914 !important;
-}
-
-.sc-JkixQ {
-    margin-left: 160px;
-    position: fixed;
-    z-index: 2;
-}
-
-.sc-gGPzkF {
-    padding-top: 50px !important;
-}
-
-.sc-dVNjXY {
-    background-color: #161616 !important;
-    margin-top:30px;
-}
-
-.sc-bQtKYq {
-    padding: 0px !important;
-}
-
-.sc-egiyK {
-    z-index: 1 !important;
-    font-size: calc(100vw * 0.012) !important;
-    padding:calc(100vw * 0.002) calc(100vw * 0.008) !important;
-}
-
-.sc-FNXRL {
-    background-color: rgba(0,0,0,0.7) !important;
-    transition: background-color 1000ms linear !important;
-}
-
+    scroll-behavior: smooth;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  button {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: #555;
+  }
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  @font-face {
+    font-family: 'PoppinsBlack';
+    font-weight: 900;
+    src: url('./fonts/Poppins-Black.ttf');
+  }
+  @font-face {
+    font-family: 'PoppinsBold';
+    font-weight: 700;
+    src: url('./fonts/Poppins-Bold.ttf');
+  }
+  @font-face {
+    font-family: 'PoppinsSemiBold';
+    font-weight: 600;
+    src: url('./fonts/Poppins-SemiBold.ttf');
+  }
+  @font-face {
+    font-family: 'PoppinsMedium';
+    font-weight: 500;
+    src: url('./fonts/Poppins-Medium.ttf');
+  }
+  @font-face {
+    font-family: 'Poppins';
+    font-weight: 400;
+    src: url('./fonts/Poppins-Regular.ttf');
+  }
+  @font-face {
+    font-family: 'Questrial';
+    font-weight: 400;
+    src: url('./fonts/Questrial-Regular.ttf');
+  }
+  
+  
+  .hide-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border: 0px solid #555;
+    border-radius: 2.5px;
+    filter: none;
+    transition: background-color 0.25s, filter 0.25s;
+  }
+  
+  .hide-scrollbar:hover::-webkit-scrollbar-thumb {
+    background-color: white;
+    transition: background-color 0.25s, filter 0.25s;
+  }
+  
+  body::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  
+  body::-webkit-scrollbar-button {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  
+  ::-webkit-scrollbar-button {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: white;
+    border: 0px solid #555;
+    border-radius: 2.5px;
+    filter: none;
+    transition: background-color 0.25s, filter 0.25s;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    filter: brightness(80%);
+  }
+  ::-webkit-scrollbar-track {
+    background: #555;
+    border: 0px none #555;
+    border-radius: 2.5px;
+  }
+  ::-webkit-scrollbar-track:hover {
+    background: #555;
+  }
+  ::-webkit-scrollbar-track:active {
+    background: #555;
+  }
+  
+  ::-webkit-scrollbar-corner {
+    background: #555;
+  }
+  
+  .container {
+    height: calc(100vh - 100px);
+    display: flex;
+  }
+  
+  .content{
+    padding: 30px 30px;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
