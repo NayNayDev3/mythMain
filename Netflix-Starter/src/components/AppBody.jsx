@@ -3,10 +3,10 @@ import { Loading } from 'web3uikit'
 import "../css/AppBody.css"
 import MainApp from './MainApp'
 import SideBar from './SideBar'
-export default function AppBody({account,timerState,chainId,useMoralisQuery}) {
+export default function AppBody({Moralis,account,timerState,chainId,useMoralisQuery}) {
   const [mainAppState, setMainAppState ] = useState("DEGENS")
   const [loaded, setLoaded ] = useState(false)
-  const [degenOwnerList, setDegenOwnerList ] = useState(false)
+  const [degenOwnerList, setDegenOwnerList ] = useState([])
   const [allCosmetics, setAllCosmetics ] = useState(false)
   const [defaultCosmetics, setDefaultCosmetics ] = useState(false)
   function convertUrlToFileString(urlString){
@@ -83,6 +83,7 @@ export default function AppBody({account,timerState,chainId,useMoralisQuery}) {
             tempCosmetics2[parseInt(tempAttributes.layerType)][parseInt(tempAttributes.layerId)] = {layerType:parseInt(tempAttributes.layerType),layerId:parseInt(tempAttributes.layerId),imageUrl:tempAttributes.imageURL, name:tempAttributes.imageName}
          
           })
+
           let defaultCosmeticObject = {
             0:[],
             1:[],
@@ -92,12 +93,23 @@ export default function AppBody({account,timerState,chainId,useMoralisQuery}) {
             5:[]
 
           }
+          const convertLayerObject = {
+            0:0,
+            1:1,
+            2:5,
+            3:2,
+            4:4,
+            5:6
+          }
+
+            defaultsAvailable.forEach((_)=>{
+              let tempAttributes = _.attributes
+              defaultCosmeticObject[tempAttributes.layerType].push({defaultId:tempAttributes.defaultId, cosmeticObject:tempCosmetics2[convertLayerObject[parseInt(tempAttributes.layerType)]][parseInt(tempAttributes.cosmeticId)]})
+            })
+            setDefaultCosmetics(defaultCosmeticObject)
+
           setAllCosmetics(tempCosmetics2)
-          defaultsAvailable.forEach((_)=>{
-            let tempAttributes = _.attributes
-            defaultCosmeticObject[tempAttributes.layerType].push({defaultId:tempAttributes.defaultId, cosmeticObject:tempCosmetics2[parseInt(tempAttributes.layerType)][parseInt(tempAttributes.cosmeticId)]})
-          })
-          setDefaultCosmetics(defaultCosmeticObject)
+
         }
       }
       load()
@@ -105,7 +117,7 @@ export default function AppBody({account,timerState,chainId,useMoralisQuery}) {
   return (
     <div className='AppBodyContainer'>
       <SideBar setMainAppState={setMainAppState} mainAppState={mainAppState} />
-      <MainApp degenOwnerList={degenOwnerList} allCosmetics={allCosmetics} defaultCosmetics={defaultCosmetics} chainId={chainId} mainAppState={mainAppState}/>
+      <MainApp account={account} degenOwnerList={degenOwnerList} Moralis={Moralis} convertUrlToFileString={convertUrlToFileString} allCosmetics={allCosmetics} defaultCosmetics={defaultCosmetics} chainId={chainId} mainAppState={mainAppState}/>
     </div>
   )
 }

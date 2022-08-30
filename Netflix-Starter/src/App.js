@@ -31,7 +31,7 @@ useState('disconnected');
 const [timerState, setTimerState] = useState(0);
 
 useEffect( ()=>{
-  const loadIntervalId = setInterval(()=>{setTimerState(timerState + 1)},5000);
+  const loadIntervalId = setInterval(()=>{setTimerState(timerState + 1)},1000);
   return () => clearInterval(loadIntervalId)
 },[timerState])
 
@@ -69,7 +69,7 @@ useEffect(()=>{
   return(
     <div className='App'>
       <Header isAuthenticated={isAuthenticated} account={account} />
-      <AppBody account={account} timerState={timerState} useMoralisQuery={useMoralisQuery} chainId={chainId} />
+      <AppBody Moralis={Moralis} account={account} timerState={timerState} useMoralisQuery={useMoralisQuery} chainId={chainId} />
       
     </div>
   )

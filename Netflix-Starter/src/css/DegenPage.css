@@ -73,3 +73,20 @@
     color: #FFFFFF;
     }
     
+.degenBaseImageContainer{
+  min-width: 225px;
+  max-width: 225px;
+  max-height: 225px;
+  min-height: 225px;
+  border-radius: 15px;
+  position: relative;
+  margin:25px;
+}
+.degenBaseImageLayer{
+  min-width: 225px;
+  max-width: 225px;
+  max-height: 225px;
+  min-height: 225px;
+  border-radius: 15px;
+  position: absolute;
+}

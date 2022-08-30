@@ -1,0 +1,64 @@
+.mintModalContainer{
+    width: 100%;
+}
+.imageContainer{
+    min-width: 512px;
+    max-width: 512px;
+    max-height: 512px;
+    min-height: 512px;
+    position: absolute;
+    border-radius: 25px;
+}
+.selectionButton{
+    font-family: 'PoppinsMedium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 100%;
+    letter-spacing: 0.075em;
+    color: #FFFFFF;
+    outline: rgba(255, 255, 255, 0.669) solid 1px;
+    background: none;
+    padding:15px;
+    border-radius: 20px;
+}
+.selectionButton:hover{
+    background-color: rgba(255, 255, 255, 0.084);
+    color: #7C7AD8;
+    outline:none;
+}
+.layerSelectionDiv{
+    width: 100%;
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-around;
+}
+.cosmeticChoiceContainer{
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cosmeticContainer{
+    background-color: rgba(255, 255, 255, 0.719);
+    min-width: 145px;
+    border-radius: 15px;
+    max-width: 145px;
+    max-height: 145px;
+    min-height: 145px;
+    margin: 10px;
+    cursor: pointer;
+    
+}
+.cosmeticContainer:hover{
+    box-shadow: #7c7ad80f 0px 54px 55px, #7c7ad819 0px -12px 30px, #7c7ad819 0px 4px 6px,#7c7ad815 0px 12px 13px,#7c7ad81f 0px -3px 5px;
+}
+.imageDiv{
+    position: relative;
+    outline: solid #7C7AD8 2px;
+    min-width:512px;
+    max-width:512px;
+    min-height:512px;
+    max-height:512px;
+    border-radius: 25px;
+}
