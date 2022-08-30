@@ -1,7 +1,7 @@
 import React from 'react'
 import DegenPage from './DegenPage'
 
-export default function MainApp({mainAppState,chainId}) {
+export default function MainApp({defaultCosmetics,allCosmetics,degenOwnerList,mainAppState,chainId}) {
   if(chainId !== 97){
     return (
       <div className="connectMetaMask">
@@ -16,7 +16,7 @@ export default function MainApp({mainAppState,chainId}) {
   }
   return (
     <div className='container'>
-      {mainAppState === "DEGENS" && <DegenPage/>}
+      {mainAppState === "DEGENS" && <DegenPage degenOwnerList={degenOwnerList} allCosmetics={allCosmetics} defaultCosmetics={defaultCosmetics}/>}
     </div>
   )
 }

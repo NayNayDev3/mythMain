@@ -69,7 +69,7 @@ useEffect(()=>{
   return(
     <div className='App'>
       <Header isAuthenticated={isAuthenticated} account={account} />
-      <AppBody chainId={chainId} />
+      <AppBody account={account} timerState={timerState} useMoralisQuery={useMoralisQuery} chainId={chainId} />
       
     </div>
   )
