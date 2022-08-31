@@ -32,6 +32,7 @@ export default function MintModal({ chainId,Moralis,convertUrlToFileString,defau
           },msgValue:50000000000000000});
         
         setPending(false)
+        setMintModalOpen(false)
       }catch {
         setPending(false)
       }
@@ -40,6 +41,9 @@ export default function MintModal({ chainId,Moralis,convertUrlToFileString,defau
   }
   return (
     <div className='mintModalContainer'>
+      <div>
+        <button disabled={pending} className='backButton' onClick={()=>{setMintModalOpen(false)}}>Back To Degens</button>
+      </div>
       <div className="centerWidth">
         <button disabled={pending} className='selectionButton' onClick={()=>{setPending(true);mintDegen()}}>MINT FOR 0.05 BNB</button>
       </div>
@@ -49,8 +53,9 @@ export default function MintModal({ chainId,Moralis,convertUrlToFileString,defau
         <div className='imageDiv'>
           <img className="imageContainer" src={defaultBG? convertUrlToFileString(defaultBG.cosmeticObject.imageUrl): ""}></img>
           <img className="imageContainer" src={defaultBodyColor? convertUrlToFileString(defaultBodyColor.cosmeticObject.imageUrl): ""}></img>
-          <img className="imageContainer" src={defaultHair? convertUrlToFileString(defaultHair.cosmeticObject.imageUrl): ""}></img>
+          
           <img className="imageContainer" src={defaultEyes? convertUrlToFileString(defaultEyes.cosmeticObject.imageUrl): ""}></img>
+          <img className="imageContainer" src={defaultHair? convertUrlToFileString(defaultHair.cosmeticObject.imageUrl): ""}></img>
           <img className="imageContainer" src={defaultNose? convertUrlToFileString(defaultNose.cosmeticObject.imageUrl): ""}></img>
           <img className="imageContainer" src={defaultMouth? convertUrlToFileString(defaultMouth.cosmeticObject.imageUrl): ""}></img>
         </div>

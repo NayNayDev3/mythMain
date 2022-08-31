@@ -6,9 +6,12 @@ import SideBar from './SideBar'
 export default function AppBody({Moralis,account,timerState,chainId,useMoralisQuery}) {
   const [mainAppState, setMainAppState ] = useState("DEGENS")
   const [loaded, setLoaded ] = useState(false)
-  const [degenOwnerList, setDegenOwnerList ] = useState([])
+  const [degenOwnerList, setDegenOwnerList ] = useState({})
   const [allCosmetics, setAllCosmetics ] = useState(false)
   const [defaultCosmetics, setDefaultCosmetics ] = useState(false)
+  const [degenTransfer, setDegenTransfer ] = useState(false)
+  const [recievedDatabaseID, setRecievedID ] = useState([])
+
   function convertUrlToFileString(urlString){
     if(urlString === "" ) {
       return ""
@@ -35,10 +38,34 @@ export default function AppBody({Moralis,account,timerState,chainId,useMoralisQu
     [],
     { autoFetch: false }
   );
-
     useEffect(()=>{
+      if(!degenTransfer) return
+      if(!recievedDatabaseID.includes(degenTransfer.id)){
+        degenOwnerList[degenTransfer.attributes.tokenId] = degenTransfer.attributes.to
+        setDegenOwnerList(degenOwnerList)
+        setRecievedID([...recievedDatabaseID,degenTransfer.id])
+      } else {
+    
+      }
+      setDegenTransfer(false)
+
+    },[degenTransfer])
+    
+    useEffect(()=>{
+      const degenOwnerQuery = new Moralis.Query("transferDegen")
       async function load(){
         if(loaded) return
+        try{
+          let degenSub = await degenOwnerQuery.subscribe()
+          degenSub.on('update', (object) => {
+            setTimeout(()=>{setDegenTransfer(object)},10000)
+            
+              
+            });
+        } catch {
+          return
+        }
+
         const degenTransfers = await getDegenTransfers.fetch()
         const cosmeticsAvailable = await availableCosmetics.fetch()
         const defaultsAvailable = await availableDefaults.fetch()
@@ -117,7 +144,7 @@ export default function AppBody({Moralis,account,timerState,chainId,useMoralisQu
   return (
     <div className='AppBodyContainer'>
       <SideBar setMainAppState={setMainAppState} mainAppState={mainAppState} />
-      <MainApp account={account} degenOwnerList={degenOwnerList} Moralis={Moralis} convertUrlToFileString={convertUrlToFileString} allCosmetics={allCosmetics} defaultCosmetics={defaultCosmetics} chainId={chainId} mainAppState={mainAppState}/>
+      <MainApp account={account} timerState={timerState} degenOwnerList={degenOwnerList} Moralis={Moralis} convertUrlToFileString={convertUrlToFileString} allCosmetics={allCosmetics} defaultCosmetics={defaultCosmetics} chainId={chainId} mainAppState={mainAppState}/>
     </div>
   )
 }

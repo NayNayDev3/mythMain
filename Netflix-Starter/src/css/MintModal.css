@@ -22,6 +22,21 @@
     padding:15px;
     border-radius: 20px;
 }
+.backButton{
+    font-family: 'PoppinsMedium';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.4rem;
+    line-height: 100%;
+    letter-spacing: 0.075em;
+    color: #FFFFFF;
+    background: none;
+    padding:15px;
+    border-radius: 20px;
+}
+.backButton:hover{
+    color: #7C7AD8;
+}
 .selectionButton:hover{
     background-color: rgba(255, 255, 255, 0.084);
     color: #7C7AD8;

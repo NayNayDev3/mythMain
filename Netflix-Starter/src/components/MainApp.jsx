@@ -1,7 +1,7 @@
 import React from 'react'
 import DegenPage from './DegenPage'
 
-export default function MainApp({account,Moralis,convertUrlToFileString,defaultCosmetics,allCosmetics,degenOwnerList,mainAppState,chainId}) {
+export default function MainApp({timerState,account,Moralis,convertUrlToFileString,defaultCosmetics,allCosmetics,degenOwnerList,mainAppState,chainId}) {
   if(chainId !== 97){
     return (
       <div className="connectMetaMask">
@@ -16,7 +16,7 @@ export default function MainApp({account,Moralis,convertUrlToFileString,defaultC
   }
   return (
     <div className='container'>
-      {mainAppState === "DEGENS" && <DegenPage account={account} chainId={chainId} Moralis={Moralis} convertUrlToFileString={convertUrlToFileString} degenOwnerList={degenOwnerList} allCosmetics={allCosmetics} defaultCosmetics={defaultCosmetics}/>}
+      {mainAppState === "DEGENS" && <DegenPage timerState={timerState} account={account} chainId={chainId} Moralis={Moralis} convertUrlToFileString={convertUrlToFileString} degenOwnerList={degenOwnerList} allCosmetics={allCosmetics} defaultCosmetics={defaultCosmetics}/>}
     </div>
   )
 }

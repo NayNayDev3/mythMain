@@ -1,14 +1,17 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import "../css/DegenPage.css"
 import { IconPlus } from '../utils/icons'
 import DegenImage from './DegenImage'
 import MintModal from './MintModal'
 import SelectedDegen from './SelectedDegen'
 
-export default function DegenPage({account,chainId,Moralis,convertUrlToFileString,defaultCosmetics,allCosmetics,degenOwnerList}) {
+export default function DegenPage({timerState,account,chainId,Moralis,convertUrlToFileString,defaultCosmetics,allCosmetics,degenOwnerList}) {
 
   const [mintModalOpen, setMintModalOpen ] = useState(false)
   const [degenSelected, setDegenSelected ] = useState(false)
+  useEffect(()=>{
+    
+  },[degenOwnerList])
 
   return (
     <div className='degenPageContent'>
@@ -23,7 +26,7 @@ export default function DegenPage({account,chainId,Moralis,convertUrlToFileStrin
                 </div>
                 {degenOwnerList && Object.keys(degenOwnerList).map((_,index)=>{
                   if(degenOwnerList[_] === account ){
-                    return <DegenImage setDegenSelected={setDegenSelected} chainId={chainId} Moralis={Moralis} key={index} data={_}/>
+                    return <DegenImage timerState={timerState} setDegenSelected={setDegenSelected} chainId={chainId} Moralis={Moralis} key={index} data={_}/>
                   }
                   
                 })}
