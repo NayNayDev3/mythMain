@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { addresses } from '../addresses';
 
-export default function DegenImage({data,chainId,Moralis}) {
+export default function DegenImage({setDegenSelected,data,chainId,Moralis}) {
+
     function convertUrlToFileString(urlString){
         if(urlString === "" ) {
           return ""
@@ -27,7 +28,7 @@ export default function DegenImage({data,chainId,Moralis}) {
       
     },[])
   return (
-    <div className='degenBaseImageContainer'>
+    <div onClick={()=>{setDegenSelected(data)}} className='degenBaseImageContainer'>
         {imageLayers.map((_,index)=>{
             return <img key={index} className='degenBaseImageLayer' src={convertUrlToFileString(_)}></img>
         })}

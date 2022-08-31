@@ -1,0 +1,13 @@
+.selectDegenContainer{
+    width:100%;
+}
+.degenImage{
+    min-width: 512px;
+    max-width: 512px;
+    max-height: 512px;
+    min-height: 512px;
+    position: relative;
+}
+.degenImageLayer{
+    position: absolute;
+}

@@ -26,22 +26,21 @@
     margin-bottom: 30px;
   }
   .degens {
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     margin-left: -16px;
     margin-right: -16px;
   }
-  .degensItem {
-    display: flex;
-    flex-direction: column;
-    margin: 0 16px 32px;
-    cursor: pointer;
-  }
+
   .avatarDegen {
-    width: 117px;
-    height: 110px;
+    min-width: 225px;
+    max-width: 225px;
+    min-height: 225px;
+    max-height: 225px;
     border-radius: 12px;
-    margin-bottom: 9px;
+    cursor: pointer;
+    margin:25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -83,6 +82,7 @@
   margin:25px;
 }
 .degenBaseImageLayer{
+  cursor: pointer;
   min-width: 225px;
   max-width: 225px;
   max-height: 225px;

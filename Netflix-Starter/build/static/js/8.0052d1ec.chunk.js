@@ -1,0 +1,2 @@
+(this["webpackJsonpamazon-clone"]=this["webpackJsonpamazon-clone"]||[]).push([[8,9],{1328:function(n,o){},1329:function(n,o){},1330:function(n,o){},1382:function(n,o){},1386:function(n,o){},1390:function(n,o){}}]);
+//# sourceMappingURL=8.0052d1ec.chunk.js.map
